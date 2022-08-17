@@ -8,7 +8,12 @@ namespace Logic
 {
 	public class NonInputComponent
     {
-		public virtual bool TheOutput { get; set; }
+        public NonInputComponent()
+        {
+            
+        }
+
+        public virtual bool TheOutput { get; set; }
 
 		public override string ToString()
 		{

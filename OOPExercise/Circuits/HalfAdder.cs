@@ -10,13 +10,11 @@ namespace Logic
     {
         private readonly AndGate _andGate;
         private readonly XorGate _xorGate;
-        //Sum is 1 when odd number of Inputs is 1
-        //Co is 1 when atleast two Inputs are 1
 
         private readonly List<NonInputComponent> _inputComponents;
         public HalfAdder()
         {
-            _inputComponents = new List<NonInputComponent>(new NonInputComponent[2]);
+            _inputComponents = new List<NonInputComponent>(new NonInputComponent[2]).Select(i => new NonInputComponent()).ToList();
             _andGate = new AndGate();
             _xorGate = new XorGate();
         }

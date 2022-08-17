@@ -11,13 +11,11 @@ namespace Logic
         private readonly OrGate _orGate;
         private readonly HalfAdder _halfAdderOne;
         private readonly HalfAdder _halfAdderTwo;
-        //Sum is 1 when odd number of Inputs is 1
-        //Co is 1 when atleast two Inputs are 1
 
         private readonly List<NonInputComponent> _inputComponents;
         public FullAdder()
         {
-            _inputComponents = new List<NonInputComponent>( new NonInputComponent[3] );
+            _inputComponents = new List<NonInputComponent>( new NonInputComponent[3] ).Select(i => new NonInputComponent()).ToList();
             _halfAdderOne = new HalfAdder();
             _halfAdderTwo = new HalfAdder();
             _orGate = new OrGate();
@@ -65,7 +63,7 @@ namespace Logic
             {
                 _inputComponents[num] = inputComponent;
             }
-            catch(IndexOutOfRangeException ex)
+            catch(ArgumentOutOfRangeException ex)
             {
                 Console.Error.WriteLine(ex.Message);
             }
